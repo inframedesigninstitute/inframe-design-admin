@@ -118,7 +118,15 @@ export function OnlineCourse({ apiBaseUrl }) {
 
     // url working 
 
-    const editId = window.location.hash.replace('#', '');
+    const [editId, setEditId] = useState('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const idFromHash = window.location.hash.replace('#', '');
+            setEditId(idFromHash);
+        }
+    }, []);
+
 
     // all states
 
@@ -982,8 +990,16 @@ export function OnlineCourse({ apiBaseUrl }) {
 export function ViewOnlineCourse({ apiBaseUrl, setActiveTab }) {
     const [onlineCourseData, setOnlineCourseData] = useState([])
     const [staticPath, setStaticPath] = useState('')
-    const editId = window.location.hash.replace('#', '');
 
+
+    const [editId, setEditId] = useState('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const idFromHash = window.location.hash.replace('#', '');
+            setEditId(idFromHash);
+        }
+    }, []);
 
 
     const fetchOnlineCourseData = () => {
@@ -1057,7 +1073,14 @@ export function OfflineCourse({ apiBaseUrl }) {
     const [coursePoints, setCoursePoints] = useState(["", "", ""]);
 
 
-    const editId = window.location.hash.replace('#', '');
+    const [editId, setEditId] = useState('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const idFromHash = window.location.hash.replace('#', '');
+            setEditId(idFromHash);
+        }
+    }, []);
 
     const [staticPath, setStaticPath] = useState('')
 
@@ -1578,9 +1601,21 @@ export function OfflineCourse({ apiBaseUrl }) {
 
 
 export function ViewOfflineCourse({ apiBaseUrl, setActiveTab }) {
-    const editId = window.location.hash.replace('#', '');
+
+    const [editId, setEditId] = useState('');
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const idFromHash = window.location.hash.replace('#', '');
+            setEditId(idFromHash);
+        }
+    }, []);
+
+
     const [offlineCourseData, setOfflineCourseData] = useState([])
+
     const [staticPath, setStaticPath] = useState([])
+
     console.log(editId)
 
     const fetchOnlineCourseData = () => {
